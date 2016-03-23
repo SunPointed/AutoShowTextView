@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AutoShowTextView</string>
+    <string name="action_settings">Settings</string>
+    <string name="text">1.this is a autoShowTextView! 2.this is a autoShowTextView! 3.this is a autoShowTextView! 4.this is a autoShowTextView! s</string>
+</resources>
