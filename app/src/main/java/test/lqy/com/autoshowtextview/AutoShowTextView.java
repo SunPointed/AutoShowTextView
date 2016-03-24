@@ -4,8 +4,10 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.Gravity;
 import android.widget.TextView;
 
 import java.util.Timer;
@@ -33,7 +35,7 @@ public class AutoShowTextView extends TextView {
 
     Timer timer;
 
-    boolean isScroll = true;
+    boolean isScroll = false;
 
     float speed = 2;
 
@@ -59,6 +61,14 @@ public class AutoShowTextView extends TextView {
         super(context, attrs, defStyle);
         //this must be single line
         setSingleLine(true);
+
+        //gravity must be this
+        setGravity(Gravity.TOP | Gravity.START);
+
+        //text alignment must be this
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            setTextAlignment(TEXT_ALIGNMENT_GRAVITY);
+        }
 
         bounds = new Rect();
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -103,8 +113,13 @@ public class AutoShowTextView extends TextView {
         }
 
         if (viewWidth > textWidth) {
+            Log.i("lqy", "viewWidth:"+viewWidth);
+            Log.i("lqy", "textWidth:"+textWidth);
             canvas.drawText(text, (viewWidth - textWidth) / 2, textBaseLine, mPaint);
         } else {
+            Log.i("lqy", "start:"+start);
+            Log.i("lqy", "viewWidth:"+viewWidth);
+            Log.i("lqy", "textWidth:"+textWidth);
             if(isScroll) {
                 canvas.drawText(text, start, textBaseLine, mPaint);
                 if (start < 0) {

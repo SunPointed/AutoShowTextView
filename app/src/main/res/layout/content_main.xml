@@ -16,6 +16,12 @@
         android:id="@+id/ast"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textSize="45sp"
+        android:textColor="#FF008806"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:singleLine="true"
         android:text="@string/text" />
 
     <!--<TextView-->
