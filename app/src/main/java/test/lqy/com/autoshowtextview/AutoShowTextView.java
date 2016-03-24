@@ -57,6 +57,9 @@ public class AutoShowTextView extends TextView {
 
     public AutoShowTextView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+        //this must be single line
+        setSingleLine(true);
+
         bounds = new Rect();
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         start = 0;
@@ -79,7 +82,7 @@ public class AutoShowTextView extends TextView {
     protected void onDraw(Canvas canvas) {
         if (text == null) {
             text = getText().toString();
-            Log.i("mobiy", "text : " + text);
+            Log.i("lqy", "text : " + text);
         }
 
         if (textWidth == 0) {
@@ -114,4 +117,6 @@ public class AutoShowTextView extends TextView {
             }
         }
     }
+
+
 }

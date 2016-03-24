@@ -8,10 +8,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     AutoShowTextView ast;
+    TextView st;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+//        ast = (AutoShowTextView) findViewById(R.id.ast);
+        st = (TextView)(findViewById(R.id.ast));
 
         ast = (AutoShowTextView) findViewById(R.id.ast);
         findViewById(R.id.btn_start).setOnClickListener(new View.OnClickListener() {

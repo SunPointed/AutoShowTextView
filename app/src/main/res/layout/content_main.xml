@@ -14,9 +14,15 @@
 
     <test.lqy.com.autoshowtextview.AutoShowTextView
         android:id="@+id/ast"
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/text" />
+
+    <!--<TextView-->
+        <!--android:id="@+id/ast"-->
+        <!--android:layout_width="100dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="@string/text" />-->
 
     <Button
         android:id="@+id/btn_start"
