@@ -17,29 +17,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:textSize="45sp"
-        android:textColor="#FF008806"
         android:gravity="center"
-        android:textAlignment="center"
         android:singleLine="true"
-        android:text="@string/text" />
+        android:text="@string/text"
+        android:textAlignment="center"
+        android:textColor="#FF008806"
+        android:textSize="45sp"
+        app:isScroll="true" />
 
     <!--<TextView-->
-        <!--android:id="@+id/ast"-->
-        <!--android:layout_width="100dp"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="@string/text" />-->
+    <!--android:id="@+id/ast"-->
+    <!--android:layout_width="100dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="@string/text" />-->
 
     <Button
         android:id="@+id/btn_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/ast"
-        android:text="start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:text="start" />
+
     <Button
-        android:layout_below="@+id/btn_start"
         android:id="@+id/btn_stop"
-        android:text="stop"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_start"
+        android:text="stop" />
 </RelativeLayout>

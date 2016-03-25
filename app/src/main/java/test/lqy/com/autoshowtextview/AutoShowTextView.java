@@ -1,6 +1,7 @@
 package test.lqy.com.autoshowtextview;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
@@ -70,6 +71,10 @@ public class AutoShowTextView extends TextView {
             setTextAlignment(TEXT_ALIGNMENT_GRAVITY);
         }
 
+        TypedArray a = context.obtainStyledAttributes(attrs,R.styleable.AutoShow);
+        isScroll = a.getBoolean(R.styleable.AutoShow_isScroll, false);
+        a.recycle();
+
         bounds = new Rect();
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         start = 0;
@@ -92,7 +97,7 @@ public class AutoShowTextView extends TextView {
     protected void onDraw(Canvas canvas) {
         if (text == null) {
             text = getText().toString();
-            Log.i("lqy", "text : " + text);
+//            Log.i("lqy", "text : " + text);
         }
 
         if (textWidth == 0) {
@@ -113,13 +118,13 @@ public class AutoShowTextView extends TextView {
         }
 
         if (viewWidth > textWidth) {
-            Log.i("lqy", "viewWidth:"+viewWidth);
-            Log.i("lqy", "textWidth:"+textWidth);
+//            Log.i("lqy", "viewWidth:"+viewWidth);
+//            Log.i("lqy", "textWidth:"+textWidth);
             canvas.drawText(text, (viewWidth - textWidth) / 2, textBaseLine, mPaint);
         } else {
-            Log.i("lqy", "start:"+start);
-            Log.i("lqy", "viewWidth:"+viewWidth);
-            Log.i("lqy", "textWidth:"+textWidth);
+//            Log.i("lqy", "start:"+start);
+//            Log.i("lqy", "viewWidth:"+viewWidth);
+//            Log.i("lqy", "textWidth:"+textWidth);
             if(isScroll) {
                 canvas.drawText(text, start, textBaseLine, mPaint);
                 if (start < 0) {
