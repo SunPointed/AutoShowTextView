@@ -71,7 +71,7 @@ public class AutoShowTextView extends TextView {
             setTextAlignment(TEXT_ALIGNMENT_GRAVITY);
         }
 
-        TypedArray a = context.obtainStyledAttributes(attrs,R.styleable.AutoShow);
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.AutoShow);
         isScroll = a.getBoolean(R.styleable.AutoShow_isScroll, false);
         a.recycle();
 
@@ -82,7 +82,7 @@ public class AutoShowTextView extends TextView {
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                if(isScroll) {
+                if (isScroll) {
                     start -= speed;
                     if (start < -textWidth) {
                         start = viewWidth / 2;
@@ -101,7 +101,6 @@ public class AutoShowTextView extends TextView {
         }
 
         if (textWidth == 0) {
-            getBaseline();
             getPaint().getTextBounds(text, 0, text.length(), bounds);
             textWidth = bounds.width();
             textBaseLine = getBaseline();
@@ -111,11 +110,11 @@ public class AutoShowTextView extends TextView {
             mPaint.setColor(textColor);
             mPaint.setTextSize(textSize);
         }
-
-        if (viewWidth == 0) {
-            viewWidth = getWidth();
-            viewHeight = getHeight();
-        }
+//
+//        if (viewWidth == 0) {
+//            viewWidth = getWidth();
+//            viewHeight = getHeight();
+//        }
 
         if (viewWidth > textWidth) {
 //            Log.i("lqy", "viewWidth:"+viewWidth);
@@ -125,7 +124,7 @@ public class AutoShowTextView extends TextView {
 //            Log.i("lqy", "start:"+start);
 //            Log.i("lqy", "viewWidth:"+viewWidth);
 //            Log.i("lqy", "textWidth:"+textWidth);
-            if(isScroll) {
+            if (isScroll) {
                 canvas.drawText(text, start, textBaseLine, mPaint);
                 if (start < 0) {
                     canvas.drawText(text, start + textWidth + viewWidth / 2, textBaseLine, mPaint);
@@ -138,5 +137,12 @@ public class AutoShowTextView extends TextView {
         }
     }
 
-
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+        viewWidth = getWidth();
+        viewHeight = getHeight();
+        textWidth = 0;
+        text = null;
+    }
 }
